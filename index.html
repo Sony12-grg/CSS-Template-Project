@@ -11,6 +11,9 @@
         box-sizing: border-box;
         font-family: Arial, Helvetica, sans-serif;
     }
+    body{
+        overflow-x: hidden;
+    }
     header{
         display: flex;
         padding: 20px 20px;
@@ -72,7 +75,7 @@
     }
     .images{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+         grid-template-columns: repeat(4, 1fr);
         gap: 20px;
     }
      .house img{
@@ -107,11 +110,14 @@
           display: flex;
           justify-content: space-between;
           margin-bottom: 80px;
+          flex-wrap: wrap;
+          gap: 20px;
           /* justify-content: space-between; */
    }
    .shareholder {
-    width: 950px;
-    padding: 0 20px;
+    width: 100%;
+    max-width: 350px;
+    padding: 10px;
    }
    .shareholder img{
     width: 100%;
@@ -166,11 +172,17 @@
         margin-bottom: 50px;
         width: 180px;
     }
-    .map{
-        width: 100%;
+    .map-wrapper{
         padding: 0 20px;
+        box-sizing: border-box;
         margin-bottom: 5px;
     }
+     .map{ 
+        width: 100%;
+        max-width: 100%;
+        display: block;
+        height: auto;
+    } 
     footer{
         background-color: black;
         color: white;
@@ -186,7 +198,76 @@
     footer a:hover{
         color: rgb(91, 156, 91);
     }
+    
+   /* Responsive CSS */
+
+   @media (max-width: 1024px){
+    .images{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    
+   }
+}
+@media (max-width: 768px){
+    header{
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    nav{
+        flex-direction: column;
+        gap: 15px;
+    }
+    .text{
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    .text span{
+        padding: 10px;
+        font-size: 16px;
+    }
+    .text h1{
+        font-size: 28px;
+    }
+    
+}
+@media (max-width: 720px){
+    .shareholders{
+        flex-direction: column;
+        align-items: center;
+        
+    }
+}
+@media (max-width: 480px){
+
+    .abouttext p{
+        text-align: justify;
+    }
+    .images{
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    .shareholder h3, .shareholder h2{
+        font-size: 14px;
+    }
+    .shareholder p{
+        font-size: 12px;
+    }
+    .contactform input, .contactform button{
+        font-size: 14px;
+        width: 100%;
+        padding: 10px;
+    }
+    .map-wrapper{
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+}
     </style>
+   
+    <link rel="icon" href="assets/images/css_919826.png">
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
     <header>
@@ -313,12 +394,23 @@
              </form>
          
         </div>
-        <div class="map">
-           <img src="map.jpg" alt="map">
+        <div class="map-wrapper">
+           <img src="map.jpg" alt="map" class="map">
         </div>
     </section>
     <footer>
         <h4>Powered by <span><a href="https://www.w3schools.com/w3css/tryw3css_templates_architect.htm">w3.css</a></span></h4>
     </footer>
+     <script>
+
+      const rev = ScrollReveal();
+      rev.reveal('.logo', { delay: 500, origin: 'left', duration: 500, distance: '50px' });
+      // rev.reveal('.houses', { delay: 1000, origin: 'left' });
+
+
+
+
+    </script>
+
 </body>
 </html>
